@@ -14,4 +14,11 @@ public static class ProductMappings
         Price = p.Price,
         Description = p.Description
     };
+
+    public static Product ToEntity(this UpdateProductDto dto) => new()
+    {
+        Name = dto.Name.Trim(),
+        Price = dto.Price,
+        Description = dto.Description
+    };
 }

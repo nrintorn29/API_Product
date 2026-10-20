@@ -9,6 +9,6 @@ public class CreateProductDto
     [Range(typeof(decimal), "0.01", "1000000", ErrorMessage = "ราคาต้องอยู่ระว่าง 0.01 ถึง 1000000")]
     public decimal Price {get; set;}
 
-    [StringLength(500)]
+    [StringLength(500, ErrorMessage = "ข้อความยาวเกินไป")]
     public string? Description {get; set;}
 }

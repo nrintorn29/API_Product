@@ -32,7 +32,7 @@ public class ProductsController : ControllerBase
         => Ok(_service.GetExpensive(minPrice).Select(p => p.ToResponse()));
 
     [HttpPost]
-    public ActionResult<CreateProductDto> Create(CreateProductDto dto)
+    public ActionResult<ProductResponseDto> Create(CreateProductDto dto)
     {
         var created = _service.Create(dto.ToEntity());
 
@@ -40,14 +40,11 @@ public class ProductsController : ControllerBase
     }
 
     [HttpPut("{id:int}")]
-    public ActionResult<UpdateProductDto> Update(int id, CreateProductDto dto)
+    public ActionResult<ProductResponseDto> Update(int id, UpdateProductDto dto)
     {
-        var product = _service.GetById(id);
+        var updated = _service.Update(id, dto.ToEntity());
 
-        if (product == null)
-            return NotFound();
-        
-        return Ok(_service.Update(id, dto.ToEntity()));
+        return updated == null ? NotFound() : Ok(updated.ToResponse());
     }
 
     [HttpDelete("{id:int}")]
