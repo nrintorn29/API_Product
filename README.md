@@ -21,7 +21,7 @@ dotnet run
 |GET|`api/Products`|แสดงรายการสินค้าทั้งหมด|
 |GET|`api/Products/{id}`|แสดงรายการสินค้าตามรหัสสินค้า|
 |GET|`api/Products/search?name=`|แสดงรายการสินค้าตามชื่อสินค้า|
-|GET|`api/Products/expensive?=`|แสดงรายการสินค้าตามราคาหรือแพงกว่า|
+|GET|`api/Products/expensive?minPrice=`|แสดงรายการสินค้าตามราคาหรือแพงกว่า|
 |POST|`api/Products`|เพิ่มสินค้า|
 |PUT|`api/Products/{id}`|แก้ไขสินค้า|
 |DELETE|`api/Products/{id}`|ลบสินค้าตามรหัสสินค้า|
