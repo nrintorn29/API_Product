@@ -31,7 +31,7 @@ public class ProductsController : ControllerBase
     }
 
     [HttpGet("expensive")]
-    public async Task<ActionResult<IEnumerable<ResponseProductDto>>> GetExpansiveAsync(decimal minPrice, CancellationToken ct)
+    public async Task<ActionResult<IEnumerable<ResponseProductDto>>> GetExpensiveAsync(decimal minPrice, CancellationToken ct)
     {
         var products = await _service.GetExpensiveAsync(minPrice, ct);
         return Ok(products.Select(p => p.ToResponse()));
