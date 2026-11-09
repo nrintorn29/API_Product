@@ -31,7 +31,7 @@ public class ProductService : IProductService
 
     public async Task<Product?> UpdateAsync(int id, Product updateProduct, CancellationToken ct)
     {
-        var updated = await _db.Products.FindAsync(id, ct);
+        var updated = await _db.Products.FindAsync(new object[] {id}, ct);
         if (updated == null) return null;
         updated.Name = updateProduct.Name;
         updated.Price = updateProduct.Price;
@@ -42,7 +42,7 @@ public class ProductService : IProductService
 
     public async Task<bool> DeleteAsync(int id, CancellationToken ct)
     {
-        var deleted = await _db.Products.FindAsync(id, ct);
+        var deleted = await _db.Products.FindAsync(new object[] {id}, ct);
         if (deleted == null) return false;
         _db.Products.Remove(deleted);
         await _db.SaveChangesAsync(ct);
