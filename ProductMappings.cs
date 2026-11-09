@@ -2,7 +2,7 @@ public static class ProductMappings
 {
     public static Product ToEntity(this CreateProductDto dto) => new()
     {
-        Name = dto.Name,
+        Name = dto.Name.Trim(),
         Price = dto.Price,
         Description = dto.Description
     };
@@ -17,7 +17,7 @@ public static class ProductMappings
 
     public static Product ToEntity(this UpdateProductDto dto) => new()
     {
-        Name = dto.Name,
+        Name = dto.Name.Trim(),
         Price = dto.Price,
         Description = dto.Description
     };
