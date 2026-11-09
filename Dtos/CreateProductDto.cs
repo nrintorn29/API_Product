@@ -16,6 +16,6 @@ public class CreateProductDto
     [Range(typeof(decimal), MinPrice, MaxPrice, ErrorMessage = $"กรุณาระบุราคาระหว่าง {MinPrice} ถึง {MaxPrice}")]
     public decimal Price {get; set;}
 
-    [StringLength(setIntDescription, ErrorMessage = $"ข้อความไม่ถึง {setStringDescription} ตัวอักษร")]
+    [StringLength(setIntDescription, ErrorMessage = $"ข้อความไม่เกิน {setStringDescription} ตัวอักษร")]
     public string? Description {get; set;}
 }
