@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 public class ProductsController : ControllerBase
 {
     private readonly IProductService _service;
-    private const string RouteNameGetById = "GetProductId";
+    private const string RouteNameGetById = "GetProductById";
 
     public ProductsController(IProductService service) {_service = service;}
 
